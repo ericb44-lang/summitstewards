@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Summit Stewards — Premium Home Care, Summit County Utah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --charcoal: #1a1a1a;
+    --charcoal-mid: #2c2c2c;
+    --charcoal-light: #3d3d3d;
+    --smoke: #f5f4f2;
+    --white: #ffffff;
+    --gold: #c9a84c;
+    --gold-light: #e2c97e;
+    --text-muted: #888888;
+    --border: rgba(201,168,76,0.25);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--charcoal);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(26,26,26,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 500; letter-spacing: 0.12em;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,255,255,0.7);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--charcoal);
+    background: var(--gold); border: none; cursor: pointer;
+    padding: 0.7rem 1.6rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 10rem 4rem 6rem 6rem;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.6rem; opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+  }
+  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-subtitle {
+    font-size: 0.85rem; font-weight: 300; line-height: 1.9;
+    color: rgba(255,255,255,0.65); max-width: 420px;
+    margin-bottom: 3rem;
+    opacity: 0; animation: fadeUp 0.9s 0.7s forwards;
+  }
+  .hero-actions {
+    display: flex; gap: 1.2rem; align-items: center;
+    opacity: 0; animation: fadeUp 0.9s 0.9s forwards;
+  }
+  .btn-primary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--charcoal);
+    background: var(--gold); border: none; cursor: pointer;
+    padding: 1rem 2.4rem; text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light); transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+  }
+  .btn-ghost {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,255,255,0.7);
+    text-decoration: none; display: flex; align-items: center; gap: 0.6rem;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--gold); }
+  .btn-ghost::after { content: '→'; font-size: 1rem; }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+  }
+  .hero-img-wrap {
+    position: absolute; inset: 0;
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    filter: grayscale(20%) contrast(1.05);
+  }
+  .hero-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--charcoal) 0%, transparent 30%),
+                linear-gradient(to top, rgba(26,26,26,0.6) 0%, transparent 50%);
+  }
+
+  .hero-stat-bar {
+    position: absolute; bottom: 3rem; left: 6rem;
+    display: flex; gap: 3rem; z-index: 3;
+    opacity: 0; animation: fadeUp 0.9s 1.1s forwards;
+  }
+  .hero-stat { display: flex; flex-direction: column; gap: 0.3rem; }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 500; color: var(--gold);
+  }
+  .hero-stat-label {
+    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── DIVIDER ── */
+  .gold-rule {
+    height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 7rem 6rem; }
+  .section-eyebrow {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+    font-weight: 300; line-height: 1.15;
+    margin-bottom: 1.4rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-body {
+    font-size: 0.85rem; font-weight: 300; line-height: 1.9;
+    color: rgba(255,255,255,0.65); max-width: 520px;
+  }
+
+  /* ── ABOUT / BRAYSON ── */
+  #about {
+    background: var(--charcoal-mid);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-frame {
+    position: relative; display: inline-block; width: 100%;
+  }
+  .about-img-frame::before {
+    content: '';
+    position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px;
+    border: 1px solid var(--border); z-index: 0;
+  }
+  .about-img-frame img {
+    width: 100%; display: block; position: relative; z-index: 1;
+    filter: grayscale(15%);
+  }
+  .about-badge {
+    position: absolute; bottom: -1.5rem; right: -1.5rem; z-index: 2;
+    background: var(--gold); color: var(--charcoal);
+    padding: 1.4rem; text-align: center; min-width: 120px;
+  }
+  .about-badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 600; display: block;
+  }
+  .about-badge-txt {
+    font-size: 0.55rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; margin-top: 0.2rem; display: block;
+  }
+  .about-content { padding-left: 1rem; }
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-style: italic; font-weight: 300;
+    color: rgba(255,255,255,0.5); border-left: 2px solid var(--gold);
+    padding-left: 1.4rem; margin: 2rem 0; line-height: 1.6;
+  }
+  .about-sig {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-style: italic; color: var(--gold);
+    margin-top: 2rem;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--charcoal); }
+  .services-header { margin-bottom: 4rem; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+    border: 1.5px solid var(--border);
+  }
+  .service-card {
+    padding: 2.8rem 2.4rem;
+    background: var(--charcoal);
+    border: 1.5px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+  }
+  .service-card:hover { background: var(--charcoal-mid); }
+  .service-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon {
+    font-size: 1.8rem; margin-bottom: 1.4rem; display: block;
+    filter: sepia(1) saturate(3) hue-rotate(5deg);
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 500; margin-bottom: 0.8rem;
+  }
+  .service-desc {
+    font-size: 0.78rem; font-weight: 300; line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+  }
+  .service-list {
+    list-style: none; margin-top: 1.2rem;
+  }
+  .service-list li {
+    font-size: 0.72rem; color: rgba(255,255,255,0.5); padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .service-list li::before { content: '—'; color: var(--gold); font-size: 0.65rem; }
+
+  /* ── HOW IT WORKS ── */
+  #process {
+    background: var(--charcoal-mid);
+    display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start;
+  }
+  .process-steps { display: flex; flex-direction: column; gap: 0; }
+  .process-step {
+    display: grid; grid-template-columns: 60px 1fr; gap: 1.6rem;
+    padding: 2.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .process-step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300; color: var(--border);
+    line-height: 1; transition: color 0.3s;
+  }
+  .process-step:hover .step-num { color: var(--gold); }
+  .step-content {}
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 500; margin-bottom: 0.5rem;
+  }
+  .step-body {
+    font-size: 0.78rem; font-weight: 300; line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── PLANS ── */
+  #plans { background: var(--charcoal); }
+  .plans-header { margin-bottom: 4rem; }
+  .plans-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border);
+  }
+  .plan-card {
+    background: var(--charcoal); padding: 3rem 2.4rem;
+    position: relative; transition: background 0.3s;
+  }
+  .plan-card.featured {
+    background: var(--charcoal-mid);
+  }
+  .plan-badge {
+    font-size: 0.55rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--charcoal);
+    background: var(--gold); padding: 0.3rem 0.8rem;
+    display: inline-block; margin-bottom: 1.4rem;
+  }
+  .plan-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 400; margin-bottom: 0.3rem;
+  }
+  .plan-tagline {
+    font-size: 0.72rem; color: rgba(255,255,255,0.4);
+    margin-bottom: 2rem; font-weight: 300;
+  }
+  .plan-price {
+    margin-bottom: 2rem; padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .plan-price-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 300; color: var(--gold);
+  }
+  .plan-price-period {
+    font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-left: 0.4rem;
+  }
+  .plan-features { list-style: none; margin-bottom: 2.4rem; }
+  .plan-features li {
+    font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.65);
+    padding: 0.55rem 0; display: flex; align-items: flex-start; gap: 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .plan-features li::before { content: '✓'; color: var(--gold); font-size: 0.7rem; margin-top: 0.1rem; flex-shrink: 0; }
+  .plan-cta {
+    width: 100%; padding: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .plan-cta-outline {
+    background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .plan-cta-outline:hover {
+    border-color: var(--gold); color: var(--gold);
+  }
+  .plan-cta-gold {
+    background: var(--gold); color: var(--charcoal); border: none;
+  }
+  .plan-cta-gold:hover {
+    background: var(--gold-light);
+    box-shadow: 0 6px 24px rgba(201,168,76,0.3);
+  }
+
+  /* ── TESTIMONIAL ── */
+  #testimonial {
+    background: var(--charcoal-mid);
+    text-align: center; padding: 7rem 12rem;
+  }
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 300; font-style: italic;
+    line-height: 1.5; color: rgba(255,255,255,0.85);
+    margin-bottom: 2.4rem; position: relative;
+  }
+  .testimonial-quote::before {
+    content: '"';
+    font-size: 8rem; color: var(--border);
+    position: absolute; top: -2rem; left: -3rem;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+  }
+  .testimonial-author {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .testimonial-location {
+    font-size: 0.65rem; color: rgba(255,255,255,0.35); margin-top: 0.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--charcoal);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+  }
+  .contact-info {}
+  .contact-promise {
+    margin-top: 2.4rem; padding: 2rem;
+    border: 1px solid var(--border); background: var(--charcoal-mid);
+  }
+  .contact-promise-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 500; margin-bottom: 0.8rem; color: var(--gold);
+  }
+  .contact-promise-body {
+    font-size: 0.78rem; font-weight: 300; line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-label {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+  }
+  .form-input, .form-select, .form-textarea {
+    background: var(--charcoal-mid); border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white); padding: 0.9rem 1rem;
+    font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 300;
+    outline: none; transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-select option { background: var(--charcoal-mid); }
+  .form-submit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--charcoal);
+    background: var(--gold); border: none; cursor: pointer;
+    padding: 1.1rem 2.4rem; align-self: flex-start;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+  .form-submit:hover {
+    background: var(--gold-light); transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+  }
+  .form-success {
+    display: none; padding: 1rem 1.4rem;
+    background: rgba(201,168,76,0.1); border: 1px solid var(--gold);
+    color: var(--gold); font-size: 0.78rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111; padding: 3rem 6rem;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--border);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 500; color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline {
+    font-size: 0.6rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 0.3rem;
+  }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.6rem; color: rgba(255,255,255,0.2); letter-spacing: 0.1em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOUNTAIN DECORATION ── */
+  .mountain-divider {
+    width: 100%; overflow: hidden; line-height: 0;
+  }
+  .mountain-divider svg { display: block; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2rem; }
+    #hero { grid-template-columns: 1fr; min-height: 100svh; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    .hero-right { display: none; }
+    .hero-stat-bar { left: 2rem; bottom: 2rem; gap: 2rem; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    #about { padding: 5rem 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    #process { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+    .plans-grid { grid-template-columns: 1fr; background: transparent; gap: 1px; }
+    .plan-card { border: 1px solid var(--border); }
+    #testimonial { padding: 5rem 2rem; }
+    .testimonial-quote::before { display: none; }
+    #contact { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 2rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Summit <span>Stewards</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Summit County's Premier Home Care</p>
+    <h1 class="hero-title">
+      Your Property.<br><em>Perfectly</em><br>Maintained.
+    </h1>
+    <p class="hero-subtitle">
+      Summit Stewards delivers white-glove home maintenance on a simple monthly subscription. Never worry about your property again — whether you're there or not.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request Membership</a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="hero-bg.png" alt="Summit County mountain home" />
+      <div class="hero-img-overlay"></div>
+    </div>
+  </div>
+  <div class="hero-stat-bar">
+    <div class="hero-stat">
+      <span class="hero-stat-num">100%</span>
+      <span class="hero-stat-label">Satisfaction Guarantee</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">4×</span>
+      <span class="hero-stat-label">Annual Inspections</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">1</span>
+      <span class="hero-stat-label">Dedicated Steward</span>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img-wrap reveal">
+    <div class="about-img-frame">
+      <!-- Brayson's photo -->
+      <img src="brayson.png" alt="Brayson — your Summit Steward"
+        onerror="this.src=''; this.parentElement.style.background='linear-gradient(135deg, #2c2c2c, #3d3d3d)'; this.parentElement.style.minHeight='500px'; this.style.display='none'" />
+      <div class="about-badge">
+        <span class="about-badge-num">5★</span>
+        <span class="about-badge-txt">Rated Service</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-content reveal">
+    <p class="section-eyebrow">Meet Your Steward</p>
+    <h2 class="section-title">Hi, I'm <em>Brayson</em></h2>
+    <p class="section-body">
+      I've spent years learning every system in a home — from the foundation to the ridgeline. I know that Summit County properties face unique challenges: heavy snow loads, freeze-thaw cycles, altitude, and the demands that come with a premium second home.
+    </p>
+    <blockquote class="about-quote">
+      "I treat every home like it's my own. My clients shouldn't have to worry — that's my job."
+    </blockquote>
+    <p class="section-body">
+      As your personal steward, I handle every inspection, maintenance task, and seasonal transition so you can simply enjoy your property. One point of contact. Complete peace of mind.
+    </p>
+    <p class="about-sig">— Brayson</p>
+  </div>
+</section>
+
+<div class="mountain-divider">
+  <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:40px;">
+    <polygon points="0,40 360,5 720,30 1080,0 1440,20 1440,40" fill="#1a1a1a"/>
+    <polyline points="0,40 360,5 720,30 1080,0 1440,20" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <p class="section-eyebrow">What We Cover</p>
+    <h2 class="section-title">Comprehensive Care,<br><em>Every Season</em></h2>
+    <p class="section-body">Every service is documented, photographed, and reported — so you always know the state of your investment.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-icon">🏔️</span>
+      <h3 class="service-name">Seasonal Inspections</h3>
+      <p class="service-desc">Comprehensive property walkthroughs four times a year — before and after every season demands the most from your home.</p>
+      <ul class="service-list">
+        <li>Pre-winter weatherization check</li>
+        <li>Spring damage & thaw assessment</li>
+        <li>Roof, gutters & drainage review</li>
+        <li>Foundation & structural inspection</li>
+        <li>Full photo documentation report</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌿</span>
+      <h3 class="service-name">Exterior & Landscaping</h3>
+      <p class="service-desc">Your home's curb appeal and exterior condition managed year-round — pristine when you arrive, protected while you're away.</p>
+      <ul class="service-list">
+        <li>Snow removal coordination</li>
+        <li>Lawn & landscape oversight</li>
+        <li>Driveway & walkway maintenance</li>
+        <li>Exterior paint & siding checks</li>
+        <li>Irrigation system management</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⚙️</span>
+      <h3 class="service-name">Interior Systems</h3>
+      <p class="service-desc">The mechanical heart of your home — HVAC, plumbing, appliances — serviced, monitored, and maintained proactively.</p>
+      <ul class="service-list">
+        <li>HVAC filter & service checks</li>
+        <li>Plumbing & water heater review</li>
+        <li>Appliance function testing</li>
+        <li>Smoke & CO detector checks</li>
+        <li>Smart home system support</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔐</span>
+      <h3 class="service-name">Security & Access</h3>
+      <p class="service-desc">Regular property checks when you're away — your eyes and ears on the ground at all times.</p>
+      <ul class="service-list">
+        <li>Weekly exterior walkarounds</li>
+        <li>Lock & entry point inspection</li>
+        <li>Package & mail management</li>
+        <li>Alarm system coordination</li>
+        <li>Emergency response liaison</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛠️</span>
+      <h3 class="service-name">Repairs & Handyman</h3>
+      <p class="service-desc">Minor repairs handled before they become major problems — no coordinating contractors on your own.</p>
+      <ul class="service-list">
+        <li>Minor carpentry & patching</li>
+        <li>Caulking & weatherstripping</li>
+        <li>Light fixture & switch repair</li>
+        <li>Contractor bid management</li>
+        <li>Renovation project oversight</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📋</span>
+      <h3 class="service-name">Reporting & Concierge</h3>
+      <p class="service-desc">A dedicated digital dashboard and monthly report — full transparency on every task completed and every item flagged.</p>
+      <ul class="service-list">
+        <li>Monthly property health report</li>
+        <li>Photo & video documentation</li>
+        <li>Pre-arrival home preparation</li>
+        <li>Vendor & utility management</li>
+        <li>24/7 emergency contact line</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- HOW IT WORKS -->
+<section id="process">
+  <div class="reveal">
+    <p class="section-eyebrow">The Process</p>
+    <h2 class="section-title">Simple.<br><em>Seamless.</em><br>Stress-Free.</h2>
+    <p class="section-body" style="margin-top:1.2rem;">
+      From first contact to fully enrolled membership, we make it easy to protect your most valuable asset.
+    </p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <div class="step-content">
+        <h3 class="step-title">Initial Consultation</h3>
+        <p class="step-body">We schedule a walkthrough of your property — learning every system, every quirk, every priority. No obligation.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <div class="step-content">
+        <h3 class="step-title">Baseline Assessment</h3>
+        <p class="step-body">A full documented inspection establishes your home's current condition — photographed and recorded as your baseline.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <div class="step-content">
+        <h3 class="step-title">Choose Your Plan</h3>
+        <p class="step-body">Select the membership level that fits your property's needs. All plans include a dedicated steward — you.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <div class="step-content">
+        <h3 class="step-title">Ongoing Care Begins</h3>
+        <p class="step-body">Sit back. Your home is in trusted hands. Receive monthly reports and reach out anytime — we're always available.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <span class="step-num">05</span>
+      <div class="step-content">
+        <h3 class="step-title">Arrive to Perfection</h3>
+        <p class="step-body">Every visit, your home is pre-prepared — fresh, functional, and exactly how you left it. That's the Summit Stewards promise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mountain-divider" style="transform: scaleY(-1);">
+  <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:40px;">
+    <polygon points="0,40 360,5 720,30 1080,0 1440,20 1440,40" fill="#1a1a1a"/>
+    <polyline points="0,40 360,5 720,30 1080,0 1440,20" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- PLANS -->
+<section id="plans">
+  <div class="plans-header reveal">
+    <p class="section-eyebrow">Membership Plans</p>
+    <h2 class="section-title">Choose Your <em>Level of Care</em></h2>
+    <p class="section-body">All memberships include a dedicated steward, monthly reporting, and our satisfaction guarantee.</p>
+  </div>
+  <div class="plans-grid reveal">
+    <!-- ESSENTIAL -->
+    <div class="plan-card">
+      <h3 class="plan-name">Essential</h3>
+      <p class="plan-tagline">Core protection for your property</p>
+      <div class="plan-price">
+        <span class="plan-price-num">$99</span>
+        <span class="plan-price-period">/ month</span>
+      </div>
+      <ul class="plan-features">
+        <li>2 seasonal inspections per year</li>
+        <li>Monthly exterior walkthrough</li>
+        <li>Basic interior systems check</li>
+        <li>Photo documentation report</li>
+        <li>Email & text communication</li>
+        <li>Emergency contact line</li>
+      </ul>
+      <button class="plan-cta plan-cta-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+    <!-- STEWARD (featured) -->
+    <div class="plan-card featured">
+      <span class="plan-badge">Most Popular</span>
+      <h3 class="plan-name">Steward</h3>
+      <p class="plan-tagline">Full-service peace of mind</p>
+      <div class="plan-price">
+        <span class="plan-price-num">$199</span>
+        <span class="plan-price-period">/ month</span>
+      </div>
+      <ul class="plan-features">
+        <li>4 full seasonal inspections</li>
+        <li>Bi-weekly property walkthroughs</li>
+        <li>All interior & exterior systems</li>
+        <li>Minor repairs included (2 hrs/mo)</li>
+        <li>Pre-arrival home preparation</li>
+        <li>Monthly digital report & photos</li>
+        <li>Priority response within 4 hours</li>
+        <li>Vendor & contractor management</li>
+      </ul>
+      <button class="plan-cta plan-cta-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+    <!-- ELITE -->
+    <div class="plan-card">
+      <h3 class="plan-name">Elite</h3>
+      <p class="plan-tagline">Concierge-level property management</p>
+      <div class="plan-price">
+        <span class="plan-price-num">$299</span>
+        <span class="plan-price-period">/ month</span>
+      </div>
+      <ul class="plan-features">
+        <li>Everything in Steward, plus:</li>
+        <li>Weekly property inspections</li>
+        <li>Unlimited minor repairs</li>
+        <li>Landscaping coordination</li>
+        <li>Smart home system oversight</li>
+        <li>Renovation project management</li>
+        <li>24/7 emergency response</li>
+        <li>Concierge pre-arrival service</li>
+        <li>Annual home improvement plan</li>
+      </ul>
+      <button class="plan-cta plan-cta-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- TESTIMONIAL -->
+<section id="testimonial">
+  <blockquote class="testimonial-quote reveal">
+    We own a ski home in Park City and used to dread what we'd find after a long winter away. Since joining Summit Stewards, we arrive to a perfectly maintained home every single time. It's completely changed how we enjoy our property.
+  </blockquote>
+  <p class="testimonial-author reveal">— The Henderson Family</p>
+  <p class="testimonial-location reveal">Park City, Utah · Summit Stewards Member</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <p class="section-eyebrow">Get In Touch</p>
+    <h2 class="section-title">Stop Worrying.<br><em>Start Enjoying.</em></h2>
+    <p class="section-body">
+      Ready to hand off the headaches? Fill out the form and Brayson will personally reach out within 24 hours to schedule your complimentary consultation.
+    </p>
+    <div class="contact-promise">
+      <p class="contact-promise-title">The Summit Stewards Promise</p>
+      <p class="contact-promise-body">
+        Your property will be treated with the same care and attention we'd give our own home. No surprises, no shortcuts — just dependable, premium service every single month.
+      </p>
+    </div>
+  </div>
+  <form class="contact-form reveal" id="contactForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-input" placeholder="James" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-input" placeholder="Henderson" required />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-input" placeholder="james@email.com" required />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Phone Number</label>
+      <input type="tel" class="form-input" placeholder="(435) 000-0000" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Property Location</label>
+      <input type="text" class="form-input" placeholder="Park City, Deer Valley, Heber..." />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Membership Interest</label>
+      <select class="form-select">
+        <option value="">Select a plan...</option>
+        <option>Essential — $99/month</option>
+        <option>Steward — $199/month</option>
+        <option>Elite — $299/month</option>
+        <option>Not sure yet — just exploring</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Tell Us About Your Property</label>
+      <textarea class="form-textarea" placeholder="Square footage, number of properties, any specific concerns..."></textarea>
+    </div>
+    <button type="submit" class="form-submit">Request Consultation →</button>
+    <div class="form-success" id="formSuccess">
+      Thank you! Brayson will be in touch within 24 hours.
+    </div>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Summit <span>Stewards</span></div>
+    <div class="footer-tagline">Premium Home Care · Summit County, Utah</div>
+  </div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#plans">Plans</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 Summit Stewards · summitstewards.com</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit — mailto to ericb44@gmail.com
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const inputs = form.querySelectorAll('input, select, textarea');
+    let body = 'New Summit Stewards Inquiry:\n\n';
+    const labels = ['First Name','Last Name','Email','Phone','Property Location','Plan Interest','About Property'];
+    inputs.forEach((inp, i) => { body += `${labels[i] || inp.placeholder}: ${inp.value}\n`; });
+    const subject = encodeURIComponent('Summit Stewards — New Membership Inquiry');
+    const bodyEnc = encodeURIComponent(body);
+    window.location.href = `mailto:ericb44@gmail.com?subject=${subject}&body=${bodyEnc}`;
+    document.getElementById('formSuccess').style.display = 'block';
+    form.reset();
+  });
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.padding = window.scrollY > 60 ? '0.9rem 4rem' : '1.4rem 4rem';
+  });
+</script>
+</body>
+</html>
