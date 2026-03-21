@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Silent Leaks, Massive Bills: Early Signs of Water Damage in Your Home — Rock Canyon Property Management Blog</title>
+<meta name="description" content="Water damage is the most expensive repair most homeowners face. Learn the subtle early warning signs of leaks and water intrusion before they destroy your walls, floors, and foundation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --charcoal: #1a1a1a; --charcoal-mid: #2c2c2c; --charcoal-light: #3d3d3d;
+    --white: #ffffff; --gold: #c9a84c; --gold-light: #e2c97e;
+    --border: rgba(201,168,76,0.25);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--charcoal); color: var(--white); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem; background: rgba(26,26,26,0.92); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; letter-spacing: 0.12em; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--charcoal); background: var(--gold); border: none; cursor: pointer; padding: 0.7rem 1.6rem; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  .post-hero {
+    margin-top: 0; height: 60vh; min-height: 420px; position: relative; overflow: hidden;
+  }
+  .post-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .post-hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(26,26,26,1) 0%, rgba(26,26,26,0.4) 50%, rgba(26,26,26,0.2) 100%);
+  }
+  .post-hero-content {
+    position: absolute; bottom: 3rem; left: 0; right: 0; padding: 0 6rem;
+  }
+
+  .post-tag { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .post-tag span { background: rgba(201,168,76,0.12); padding: 0.3rem 0.7rem; }
+  .post-hero-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 400; line-height: 1.15; max-width: 800px; margin-bottom: 1rem;
+  }
+  .post-hero-meta { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+  .post-layout { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; max-width: 1100px; margin: 0 auto; padding: 4rem 4rem 6rem; }
+
+  .post-body { max-width: 720px; }
+  .post-body p { font-size: 0.88rem; font-weight: 300; line-height: 1.95; color: rgba(255,255,255,0.75); margin-bottom: 1.6rem; }
+  .post-body h2 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400;
+    margin: 2.8rem 0 1.2rem; color: var(--white); border-bottom: 1px solid var(--border); padding-bottom: 0.6rem;
+  }
+  .post-body img {
+    width: 100%; margin: 1.4rem 0 2rem; display: block;
+    border: 1px solid var(--border); filter: grayscale(10%);
+  }
+  .post-body strong { font-weight: 600; color: var(--white); }
+  .post-body ul, .post-body ol { padding-left: 1.4rem; margin-bottom: 1.6rem; }
+  .post-body li { font-size: 0.85rem; font-weight: 300; line-height: 1.9; color: rgba(255,255,255,0.7); margin-bottom: 0.4rem; }
+  .post-tip {
+    background: var(--charcoal-mid); border-left: 3px solid var(--gold);
+    padding: 1.8rem 2rem; margin: 2.4rem 0;
+  }
+  .post-tip h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 0.8rem; }
+  .post-tip p { font-size: 0.82rem !important; color: rgba(255,255,255,0.6) !important; margin-bottom: 0 !important; }
+
+  .post-sidebar { padding-top: 0.5rem; }
+  .sidebar-brayson {
+    border: 1px solid var(--border); overflow: hidden; margin-bottom: 2rem;
+  }
+  .sidebar-brayson img { width: 100%; display: block; }
+  .sidebar-brayson-body { padding: 1.6rem; background: var(--charcoal-mid); }
+  .sidebar-brayson-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; margin-bottom: 0.6rem; }
+  .sidebar-brayson-body p { font-size: 0.75rem; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.55); margin-bottom: 1.2rem; }
+  .sidebar-cta {
+    display: block; text-align: center; font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--charcoal);
+    background: var(--gold); padding: 0.8rem; text-decoration: none; transition: background 0.2s;
+  }
+  .sidebar-cta:hover { background: var(--gold-light); }
+
+  .sidebar-related { border: 1px solid var(--border); }
+  .sidebar-related-header { padding: 1.2rem 1.6rem; border-bottom: 1px solid var(--border); background: var(--charcoal-mid); }
+  .sidebar-related-header h3 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .related-post { display: flex; flex-direction: column; gap: 0.3rem; padding: 1.2rem 1.6rem; border-bottom: 1px solid rgba(255,255,255,0.05); text-decoration: none; color: inherit; transition: background 0.2s; }
+  .related-post:last-child { border-bottom: none; }
+  .related-post:hover { background: var(--charcoal-mid); }
+  .related-post-title { font-size: 0.8rem; font-weight: 400; line-height: 1.4; }
+  .related-post-meta { font-size: 0.58rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
+
+  .post-footer-nav {
+    border-top: 1px solid var(--border); padding: 3rem 4rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .back-to-blog {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+  .back-to-blog:hover { gap: 0.8rem; }
+
+  footer { background: #111; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 0.3rem; }
+  .footer-copy { font-size: 0.6rem; color: rgba(255,255,255,0.2); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .post-hero-content { padding: 0 2rem; bottom: 2rem; }
+    .post-layout { grid-template-columns: 1fr; padding: 2rem; gap: 2.5rem; }
+    .post-footer-nav { padding: 2rem; flex-direction: column; align-items: flex-start; }
+    footer { flex-direction: column; gap: 1.2rem; text-align: center; padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Summit <span>Stewards</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#plans">Plans</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get Started</a>
+</nav>
+
+<div class="post-hero">
+  <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80" alt="Water damage inspection in home" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="post-tag"><span>Plumbing · Water Damage</span></div>
+    <h1 class="post-hero-title">Silent Leaks, Massive Bills: Early Signs of Water Damage in Your Home</h1>
+    <div class="post-hero-meta">
+      <span>By Brayson · Rock Canyon Property Management</span>
+      <span>·</span>
+      <span>December 5, 2024</span>
+      <span>·</span>
+      <span>7 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+    
+<p>Water damage accounts for over $13 billion in insurance claims annually in the United States — and it's the number one concern for owners of mountain vacation properties. The reason is simple: water damage in a home that sits empty for weeks or months can be catastrophic before anyone notices. A slow drip under a sink becomes black mold. A pinhole pipe leak becomes a rotted floor system. An ice dam becomes a collapsed ceiling.</p>
+
+<p>Here's how to find water intrusion before it finds you.</p>
+
+<h2>Unexplained Spikes in Your Water Bill</h2>
+<img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=900&q=80" alt="Water meter and pipe inspection" />
+<p>If your water bill suddenly jumps with no change in usage patterns, you almost certainly have a hidden leak. The most common culprits are a running toilet (a flapper that doesn't seal can waste 200 gallons per day), a slow drip at a supply line connection, or a leak in underground irrigation. For vacation homes on utility monitoring, an unexplained usage spike is a major red flag that warrants immediate investigation.</p>
+
+<h2>Musty or Earthy Odor in Closed Rooms</h2>
+<p>Your nose is often your best early warning system for water damage. A persistent musty or earthy smell — particularly in bathrooms, basements, under stairs, or in closets — means mold or mildew is growing somewhere. Mold can begin colonizing within 24-48 hours of moisture exposure and often grows in hidden areas: behind drywall, under flooring, inside wall cavities, and above ceiling tiles. Don't dismiss odors as "the house just needs to air out."</p>
+
+<h2>Bubbling, Peeling, or Stained Paint or Wallpaper</h2>
+<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Water staining on wall and paint bubbling" />
+<p>Paint that bubbles, peels, or blisters is a direct sign of moisture trapped behind it. Water stains — yellowish or brown rings on walls or ceilings — indicate either a current leak or a historic one. Even if the stain appears dry, it means water reached that location at some point. A dry-looking stain on a ceiling directly below a bathroom or under a roof penetration should always be investigated. The damage zone is almost always larger than the visible stain.</p>
+
+<h2>Soft Spots, Warping, or Discoloration in Flooring</h2>
+<p>Walk your floors and pay attention to soft or spongy spots, particularly around toilets, under sinks, at dishwasher fronts, and near exterior doors. Wood floors that cup, buckle, or develop gaps between planks are telling you they've been exposed to moisture — either from above or from a subfloor with humidity issues. Tile grout that is cracking or tiles that have become loose often indicate the mortar bed beneath has been compromised by water.</p>
+
+<h2>Rust Stains or Mineral Deposits on Fixtures and Pipes</h2>
+<img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=80" alt="Pipe inspection for rust and mineral deposits" />
+<p>Orange or brown rust staining around pipe fittings, valve handles, or shutoff valves indicates slow seepage — water is finding its way past a connection and evaporating, leaving mineral deposits and oxidation behind. This is an early warning of a fitting that will eventually fail. Similarly, white mineral deposits (efflorescence) appearing on basement concrete walls or foundation blocks means water is migrating through the wall and evaporating on the surface, leaving dissolved minerals behind. This is both a waterproofing issue and a potential structural concern over time.</p>
+
+<h2>Sagging Ceilings or Damp Drywall</h2>
+<p>A ceiling that has any visible sag — even slight — or drywall that feels soft when pressed is actively holding water. This is an emergency situation. Saturated drywall loses structural integrity and can collapse. Before that happens, it is almost certainly growing mold in the paper backing. A bulging ceiling should be addressed within hours, not days. Make a small hole to drain accumulated water before the entire panel fails and drops onto furniture or flooring.</p>
+
+<h2>Cracks in Caulking Around Tubs, Showers, and Windows</h2>
+<p>Caulk is your last line of defense against water infiltration at all the transition points in your home. Old, cracked, or missing caulk around shower bases, tub surrounds, window frames, and exterior penetrations allows water to seep into wall cavities with every use. This is one of the most common — and most preventable — sources of hidden water damage in homes. Recaulking is inexpensive; the mold remediation that results from ignoring failed caulk is not.</p>
+
+<div class="post-tip">
+  <h3>💡 Steward's Tip</h3>
+  <p>For Summit County vacation properties, we recommend installing water leak sensors under every sink, behind every toilet, and at the water heater. Smart sensors that send phone alerts can be the difference between a $400 plumber visit and a $40,000 restoration. Rock Canyon Property Management can install and monitor these systems for all membership clients.</p>
+</div>
+
+  </article>
+
+  <aside class="post-sidebar">
+    <div class="sidebar-brayson">
+      <img src="brayson.png" onerror="this.style.opacity=0.3" alt="Brayson — Rock Canyon Property Management" />
+      <div class="sidebar-brayson-body">
+        <h3>Meet Your Steward</h3>
+        <p>Brayson manages Summit County homes year-round so you never have to worry about what's happening to your property.</p>
+        <a href="index.html#contact" class="sidebar-cta">Request a Consultation →</a>
+      </div>
+    </div>
+    <div class="sidebar-related">
+      <div class="sidebar-related-header"><h3>More from the Journal</h3></div>
+      <a href="post-roof-warning-signs.html" class="related-post">
+        <span class="related-post-title">7 Roof Warning Signs Every Mountain Homeowner Must Know</span>
+        <span class="related-post-meta">Oct 14, 2024 · Exterior</span>
+      </a>
+      <a href="post-hvac-warning-signs.html" class="related-post">
+        <span class="related-post-title">Is Your HVAC Telling You Something? 6 Sounds to Never Ignore</span>
+        <span class="related-post-meta">Nov 18, 2024 · HVAC</span>
+      </a>
+      <a href="post-water-damage-signs.html" class="related-post">
+        <span class="related-post-title">Silent Leaks, Massive Bills: Signs of Water Damage</span>
+        <span class="related-post-meta">Dec 5, 2024 · Plumbing</span>
+      </a>
+      <a href="post-foundation-cracks.html" class="related-post">
+        <span class="related-post-title">Not All Cracks Are Equal: Reading Your Foundation</span>
+        <span class="related-post-meta">Jan 9, 2025 · Structural</span>
+      </a>
+      <a href="post-pest-signs.html" class="related-post">
+        <span class="related-post-title">Uninvited Guests: Signs of Pest Infestation</span>
+        <span class="related-post-meta">Feb 3, 2025 · Pests</span>
+      </a>
+      <a href="post-electrical-warnings.html" class="related-post">
+        <span class="related-post-title">Fire Risk: Electrical Warning Signs at Home</span>
+        <span class="related-post-meta">Feb 28, 2025 · Electrical</span>
+      </a>
+      <a href="post-spring-checklist.html" class="related-post">
+        <span class="related-post-title">The Summit County Spring Inspection Checklist</span>
+        <span class="related-post-meta">Mar 20, 2025 · Seasonal</span>
+      </a>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer-nav">
+  <a href="blog.html" class="back-to-blog">← Back to The Steward's Journal</a>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Summit <span>Stewards</span></div>
+    <div class="footer-tagline">Home Maintenance · Utah County and Beyond</div>
+  </div>
+  <div class="footer-copy">© 2025 Rock Canyon Property Management · rockcanyonpm.com</div>
+</footer>
+
+</body>
+</html>
