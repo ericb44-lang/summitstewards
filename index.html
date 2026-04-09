@@ -34,10 +34,10 @@
     background: rgba(0,39,61,0.96); backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-gold); transition: padding 0.3s;
   }
-  .nav-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
-  .nav-logo img { height: 46px; width: auto; }
-  .nav-logo-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--white); letter-spacing: 0.05em; display: block; }
-  .nav-logo-sub { font-size: 0.52rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-top: 0.15rem; display: block; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo img { height: 72px; width: auto; }
+  .nav-logo-name { display: none; }
+  .nav-logo-sub { display: none; }
   .nav-links { display: flex; gap: 2.2rem; list-style: none; }
   .nav-links a { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold-light); }
@@ -130,16 +130,16 @@
 
   #process { background: var(--tan-pale); padding: 7rem 6rem; }
   .process-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: start; }
-  .process-left .section-title { color: var(--navy); }
+  .process-left .section-title { color: var(--navy); font-weight: 800; }
   .process-left .section-eyebrow { color: var(--gold); }
   .process-left .section-body { color: rgba(0,39,61,0.62); margin-top: 1rem; }
   .process-steps { display: flex; flex-direction: column; }
   .process-step { display: grid; grid-template-columns: 54px 1fr; gap: 1.3rem; padding: 1.7rem 0; border-bottom: 1px solid rgba(0,39,61,0.1); }
   .process-step:last-child { border-bottom: none; }
-  .step-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; color: rgba(0,39,61,0.16); line-height: 1; transition: color 0.3s; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; color: rgba(0,39,61,0.25); line-height: 1; transition: color 0.3s; }
   .process-step:hover .step-num { color: var(--gold); }
-  .step-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 0.35rem; }
-  .step-body { font-size: 0.74rem; font-weight: 300; line-height: 1.85; color: rgba(0,39,61,0.58); }
+  .step-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.35rem; }
+  .step-body { font-size: 0.74rem; font-weight: 400; line-height: 1.85; color: rgba(0,39,61,0.72); }
 
   #plans { background: var(--navy); padding: 7rem 6rem; }
   .plans-header { margin-bottom: 4rem; }
@@ -248,11 +248,13 @@
     <li><a href="#offer">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#plans">Plans</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#payment">Pay</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="tel:9497505268" class="nav-phone">949-750-5268</a>
+    <a href="tel:3853768354" class="nav-phone">385-376-8354</a>
     <a href="#contact" class="nav-cta">Free Wellness Report</a>
   </div>
 </nav>
@@ -280,7 +282,7 @@
 
 <div id="promise">
   <div class="promise-text">"You never have to worry about home maintenance ever again."</div>
-  <div class="promise-items">
+  <div class="promise-items"><div class="promise-item"><span class="promise-icon">✅</span><span class="promise-label">Fully Licensed &amp; Insured</span></div>
     <div class="promise-item"><span class="promise-icon">🏠</span><span class="promise-label">Free Home Wellness Report</span></div>
     <div class="promise-item"><span class="promise-icon">🔧</span><span class="promise-label">Monthly Maintenance Visits</span></div>
     <div class="promise-item"><span class="promise-icon">📅</span><span class="promise-label">Easy Subscription</span></div>
@@ -345,7 +347,7 @@
     <p class="section-body">I'm Brayson, founder of Rock Canyon Property Management. I started this company because I saw too many homeowners overwhelmed by the endless demands of home upkeep — families who just want to enjoy their home, not manage it.</p>
     <blockquote class="about-quote">"Your home is meant to be enjoyed. Let us be your one-stop shop for regular home maintenance."</blockquote>
     <p class="section-body">Rock Canyon is built on one simple promise: when you're a member, home maintenance is no longer your problem. It's ours.</p>
-    <div class="about-team-note"><strong>Our team of trained technicians</strong> handles every service call — skilled, reliable, and background-checked professionals who treat your home with the same care you do. One call, one relationship, complete peace of mind.</div>
+    <div class="about-team-note"><div style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:var(--navy);padding:0.3rem 0.8rem;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.8rem;">✅ Fully Licensed &amp; Insured</div><br><strong>Our team of trained technicians</strong> handles every service call — skilled, reliable, and background-checked professionals who treat your home with the same care you do. One call, one relationship, complete peace of mind.</div>
     <p class="about-sig">— Brayson, Owner</p>
   </div>
 </section>
@@ -365,10 +367,10 @@
   </div>
   <div class="services-grid reveal">
     <div class="service-card"><span class="service-icon">🏔️</span><h3 class="service-name">Seasonal Inspections</h3><p class="service-desc">Comprehensive walkthroughs calibrated to Utah's demanding seasonal shifts.</p><ul class="service-list"><li>Pre-winter weatherization</li><li>Spring damage assessment</li><li>Roof &amp; gutter check</li><li>Full photo report</li></ul></div>
-    <div class="service-card"><span class="service-icon">💧</span><h3 class="service-name">Plumbing &amp; Water</h3><p class="service-desc">Drain cleanouts, water softener service, and leak prevention before damage occurs.</p><ul class="service-list"><li>Drain cleanouts</li><li>Water softener refills</li><li>Leak detection checks</li><li>Water heater inspection</li></ul></div>
-    <div class="service-card"><span class="service-icon">⚙️</span><h3 class="service-name">HVAC &amp; Air Quality</h3><p class="service-desc">Filter changes, vent cleaning, and system checks year-round.</p><ul class="service-list"><li>HVAC filter replacement</li><li>Vent cleaning</li><li>System function testing</li><li>Seasonal tune-ups</li></ul></div>
-    <div class="service-card"><span class="service-icon">🔒</span><h3 class="service-name">Safety &amp; Security</h3><p class="service-desc">We test and maintain every safety system so your family is always protected.</p><ul class="service-list"><li>Smoke &amp; CO detector checks</li><li>Appliance monitoring</li><li>Lock &amp; entry inspection</li><li>Emergency response liaison</li></ul></div>
-    <div class="service-card"><span class="service-icon">🏡</span><h3 class="service-name">Exterior &amp; Curb Appeal</h3><p class="service-desc">Your home's exterior managed so it always looks its best and stays protected.</p><ul class="service-list"><li>Exterior condition checks</li><li>Gutter maintenance</li><li>Driveway &amp; walkway care</li><li>Landscape coordination</li></ul></div>
+    <div class="service-card"><span class="service-icon">💧</span><h3 class="service-name">Plumbing &amp; Water</h3><p class="service-desc">Drain cleanouts, water softener service, and leak prevention before damage occurs.</p><ul class="service-list"><li>Drain cleanouts</li><li>Water softener refills</li><li>Leak detection checks</li></ul></div>
+    <div class="service-card"><span class="service-icon">⚙️</span><h3 class="service-name">HVAC &amp; Air Quality</h3><p class="service-desc">Filter changes, vent cleaning, and system checks year-round.</p><ul class="service-list"><li>HVAC filter replacement</li><li>Vent cleaning</li><li>Seasonal tune-ups</li></ul></div>
+    <div class="service-card"><span class="service-icon">🔒</span><h3 class="service-name">Safety &amp; Security</h3><p class="service-desc">We test and maintain every safety system so your family is always protected.</p><ul class="service-list"><li>Smoke &amp; CO detector checks</li><li>Appliance function monitoring</li><li>Emergency response liaison</li></ul></div>
+    <div class="service-card"><span class="service-icon">🏡</span><h3 class="service-name">Exterior &amp; Curb Appeal</h3><p class="service-desc">Your home's exterior managed so it always looks its best and stays protected.</p><ul class="service-list"><li>Exterior condition checks</li><li>Gutter maintenance</li><li>Driveway &amp; walkway care</li><li>Subcontractor coordination</li></ul></div>
     <div class="service-card"><span class="service-icon">🛠️</span><h3 class="service-name">Repairs &amp; Handyman</h3><p class="service-desc">Minor repairs handled before they become major problems.</p><ul class="service-list"><li>Minor carpentry &amp; patching</li><li>Caulking &amp; weatherstripping</li><li>Light fixture repairs</li><li>Contractor coordination</li></ul></div>
   </div>
 </section>
@@ -420,11 +422,52 @@
     <div class="plan-card">
       <h3 class="plan-name">Premier</h3><p class="plan-tagline">Concierge-level care</p>
       <div class="plan-price"><span class="plan-price-num">$299</span><span class="plan-price-period">/ month</span></div>
-      <ul class="plan-features"><li>Everything in Steward, plus:</li><li>Weekly property check-ins</li><li>Unlimited minor repairs</li><li>Landscape coordination</li><li>Appliance monitoring</li><li>Contractor bid management</li><li>24/7 emergency response</li><li>Annual home improvement plan</li></ul>
+      <ul class="plan-features"><li>Everything in Steward, plus:</li><li>Weekly property check-ins</li><li>Unlimited minor repairs</li><li>Subcontractor coordination</li><li>Appliance function monitoring</li><li>Contractor bid management</li><li>24/7 emergency response</li><li>Annual home improvement plan</li></ul>
       <button class="plan-cta plan-cta-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
     </div>
   </div>
   <p class="plans-free-note">Every new membership includes a <strong>complimentary first home visit &amp; free home wellness report</strong>.</p>
+</section>
+
+<!-- SCHEDULE A VISIT -->
+<section id="schedule" style="background:var(--navy-deep);padding:6rem;text-align:center;">
+  <div class="reveal">
+    <p class="section-eyebrow" style="text-align:center;">Book Online</p>
+    <h2 class="section-title" style="text-align:center;">Schedule Your <em>Free Home Visit</em></h2>
+    <p class="section-body" style="text-align:center;max-width:520px;margin:0 auto 2.5rem;">Pick a time that works for you. Brayson's team will come to you for a complimentary home wellness walkthrough — no commitment required.</p>
+    <!-- CALENDLY EMBED: Replace YOUR_CALENDLY_URL below with your actual Calendly link -->
+    <!-- Example: https://calendly.com/rockcanyonpm/home-visit -->
+    <div style="background:var(--navy-mid);border:1px solid var(--border-gold);padding:3rem;max-width:700px;margin:0 auto;">
+      <p style="font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--gold-light);margin-bottom:1rem;">Calendly Scheduling Coming Soon</p>
+      <p style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;">Once your Calendly account is set up, paste your embed code here. See setup instructions below.</p>
+      <!-- PASTE YOUR CALENDLY INLINE EMBED CODE HERE -->
+      <!-- <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_USERNAME/home-visit" style="min-width:320px;height:700px;"></div> -->
+      <!-- <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script> -->
+      <a href="#contact" class="btn-primary" style="display:inline-block;">Request Visit via Form →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PAY YOUR MEMBERSHIP -->
+<section id="payment" style="background:var(--tan-pale);padding:6rem;text-align:center;">
+  <div class="reveal">
+    <p class="section-eyebrow" style="text-align:center;color:var(--gold);">Secure Online Payment</p>
+    <h2 class="section-title" style="text-align:center;color:var(--navy);">Pay Your <em>Membership</em></h2>
+    <p style="font-size:0.86rem;font-weight:300;line-height:1.9;color:rgba(0,39,61,0.65);max-width:520px;margin:0 auto 2.5rem;">Use the secure Square payment portal below to set up or pay your monthly membership. All major cards accepted.</p>
+    <!-- SQUARE PAYMENT EMBED: Replace with your Square payment link or embed code -->
+    <!-- Get this from: Square Dashboard → Online Store → Payment Links -->
+    <div style="background:white;border:1px solid var(--border-tan);padding:3rem;max-width:600px;margin:0 auto;box-shadow:0 4px 24px rgba(0,39,61,0.08);">
+      <p style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:1rem;">Square Payment Portal Coming Soon</p>
+      <p style="font-size:0.78rem;font-weight:300;color:rgba(0,39,61,0.55);margin-bottom:1.5rem;">Once your Square account is set up, your payment links will appear here.</p>
+      <!-- PASTE YOUR SQUARE PAYMENT BUTTON/EMBED CODE HERE -->
+      <!-- Example Square payment link buttons: -->
+      <div style="display:flex;flex-direction:column;gap:1rem;max-width:320px;margin:0 auto;">
+        <a href="YOUR_SQUARE_ESSENTIAL_LINK" style="display:block;background:var(--navy);color:white;padding:1rem;font-family:Raleway,sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;text-align:center;">Pay Essential Plan — $99/mo</a>
+        <a href="YOUR_SQUARE_STEWARD_LINK" style="display:block;background:var(--gold);color:var(--navy);padding:1rem;font-family:Raleway,sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;text-align:center;">Pay Steward Plan — $199/mo</a>
+        <a href="YOUR_SQUARE_PREMIER_LINK" style="display:block;background:var(--navy);color:white;padding:1rem;font-family:Raleway,sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;text-align:center;">Pay Premier Plan — $299/mo</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="gold-rule"></div>
@@ -441,16 +484,16 @@
     <h2 class="section-title">Ready to Stop<br><em>Worrying?</em></h2>
     <p class="section-body">Fill out the form and we'll reach out within 24 hours to schedule your free home wellness report. No obligation, no pressure.</p>
     <div class="contact-details">
-      <div class="contact-detail"><span class="contact-detail-icon">📞</span><div><div class="contact-detail-label">Phone / Text</div><div class="contact-detail-value"><a href="tel:9497505268">949-750-5268</a></div></div></div>
-      <div class="contact-detail"><span class="contact-detail-icon">📧</span><div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:Rockcanyonpm@gmail.com">Rockcanyonpm@gmail.com</a></div></div></div>
+      <div class="contact-detail"><span class="contact-detail-icon">📞</span><div><div class="contact-detail-label">Phone / Text</div><div class="contact-detail-value"><a href="tel:3853768354">385-376-8354</a></div></div></div>
+      <div class="contact-detail"><span class="contact-detail-icon">📧</span><div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#2a78454941494b445345445a476a4d474b434604494547"><span class="__cf_email__" data-cfemail="4c1e232f272f2d223523223c210c2b212d2520622f2321">[email&#160;protected]</span></a></div></div></div>
       <div class="contact-detail"><span class="contact-detail-icon">📍</span><div><div class="contact-detail-label">Service Area</div><div class="contact-detail-value">Utah County and Beyond</div></div></div>
     </div>
     <div class="contact-qr">
       <img src="rc-qr.png" alt="Scan to contact Rock Canyon Property Management" />
-      <div class="contact-qr-text"><h4>Scan to Contact Us</h4><p>Point your camera at the QR code to get in touch instantly — or visit rockcanyonpm.com</p></div>
+      <div class="contact-qr-text"><h4>Scan to Contact Us</h4><p>Point your camera at the QR code to get in touch instantly — or visit rockcanyonproperty.com</p></div>
     </div>
   </div>
-  <form class="contact-form reveal" id="contactForm">
+  <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
     <div class="form-row">
       <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="James" required /></div>
       <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Andersen" required /></div>
@@ -476,7 +519,7 @@
     <div class="footer-links">
       <a href="#offer">Services</a><a href="#about">About</a><a href="#plans">Plans</a><a href="blog.html">Blog</a><a href="#contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2025 Rock Canyon Property Management · rockcanyonpm.com</div>
+    <div class="footer-copy">© 2025 Rock Canyon Property Management · rockcanyonproperty.com · Fully Licensed &amp; Insured</div>
   </div>
 </footer>
 
@@ -486,16 +529,33 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const inputs = this.querySelectorAll('input, select, textarea');
-    let body = 'New Rock Canyon Property Management Inquiry:\n\n';
-    const labels = ['First Name','Last Name','Email','Phone','Property Location','Plan Interest','About Home'];
-    inputs.forEach((inp, i) => { body += `${labels[i] || 'Other'}: ${inp.value}\n`; });
-    window.location.href = `mailto:Rockcanyonpm@gmail.com?subject=${encodeURIComponent('Rock Canyon PM — New Membership Inquiry')}&body=${encodeURIComponent(body)}`;
-    document.getElementById('formSuccess').style.display = 'block';
-    this.reset();
-  });
+  // Contact form — submits to Formspree (replace YOUR_FORM_ID with real ID after signup)
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const resp = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (resp.ok) {
+          document.getElementById('formSuccess').style.display = 'block';
+          this.reset();
+          btn.textContent = 'Request Free Wellness Report →';
+          btn.disabled = false;
+        } else {
+          btn.textContent = 'Error — please call us';
+        }
+      } catch(err) {
+        btn.textContent = 'Error — please call us';
+      }
+    });
+  }
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
@@ -506,8 +566,7 @@
 
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('mainNav');
-    if (nav) nav.style.padding = window.scrollY > 60 ? '0.75rem 4rem' : '1.2rem 4rem';
+    if (nav) nav.style.padding = window.scrollY > 60 ? '0.5rem 4rem' : '1.2rem 4rem';
   });
-</script>
-</body>
+</script></body>
 </html>
