@@ -25,17 +25,18 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+  section, div[id] { scroll-margin-top: 130px; }
   body { font-family: 'Raleway', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
 
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 4rem;
+    padding: 0.6rem 4rem;
     background: rgba(0,39,61,0.96); backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-gold); transition: padding 0.3s;
   }
   .nav-logo { display: flex; align-items: center; text-decoration: none; }
-  .nav-logo img { height: 72px; width: auto; }
+  .nav-logo img { height: 110px; width: auto; }
   .nav-logo-name { display: none; }
   .nav-logo-sub { display: none; }
   .nav-links { display: flex; gap: 2.2rem; list-style: none; }
@@ -87,7 +88,7 @@
   .offer-cards { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 2.2rem; }
   .offer-card { display: flex; gap: 1.3rem; align-items: flex-start; padding: 1.5rem; background: var(--white); border-left: 3px solid var(--gold); box-shadow: 0 2px 14px rgba(0,39,61,0.07); transition: transform 0.2s, box-shadow 0.2s; }
   .offer-card:hover { transform: translateX(4px); box-shadow: 0 4px 22px rgba(0,39,61,0.13); }
-  .offer-card-icon { font-size: 1.7rem; flex-shrink: 0; }
+  .offer-card-icon { display: none; }
   .offer-card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.35rem; }
   .offer-card-desc { font-size: 0.74rem; font-weight: 300; line-height: 1.8; color: rgba(0,39,61,0.62); }
   .offer-card-list { list-style: none; margin-top: 0.5rem; }
@@ -121,7 +122,7 @@
   .service-card:hover { background: var(--navy-mid); }
   .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
   .service-card:hover::after { transform: scaleX(1); }
-  .service-icon { font-size: 1.6rem; margin-bottom: 1.1rem; display: block; }
+  .service-icon { display: none; }
   .service-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.6rem; }
   .service-desc { font-size: 0.74rem; font-weight: 300; line-height: 1.85; color: rgba(255,255,255,0.52); }
   .service-list { list-style: none; margin-top: 1rem; }
@@ -132,14 +133,18 @@
   .process-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: start; }
   .process-left .section-title { color: var(--navy); font-weight: 800; }
   .process-left .section-eyebrow { color: var(--gold); }
-  .process-left .section-body { color: rgba(0,39,61,0.62); margin-top: 1rem; }
+  .process-left .section-body { color: rgba(0,39,61,0.72); margin-top: 1rem; }
+  #process .section-eyebrow { color: var(--gold); }
+  #process .section-title { color: var(--navy) !important; font-weight: 800; }
+  #process .section-title em { color: var(--gold); font-style: italic; }
+  #process .section-body { color: rgba(0,39,61,0.72) !important; }
   .process-steps { display: flex; flex-direction: column; }
-  .process-step { display: grid; grid-template-columns: 54px 1fr; gap: 1.3rem; padding: 1.7rem 0; border-bottom: 1px solid rgba(0,39,61,0.1); }
+  .process-step { display: grid; grid-template-columns: 54px 1fr; gap: 1.3rem; padding: 1.7rem 0; border-bottom: 1px solid rgba(0,39,61,0.12); }
   .process-step:last-child { border-bottom: none; }
-  .step-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; color: rgba(0,39,61,0.25); line-height: 1; transition: color 0.3s; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; color: rgba(0,39,61,0.22); line-height: 1; transition: color 0.3s; }
   .process-step:hover .step-num { color: var(--gold); }
   .step-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.35rem; }
-  .step-body { font-size: 0.74rem; font-weight: 400; line-height: 1.85; color: rgba(0,39,61,0.72); }
+  .step-body { font-size: 0.78rem; font-weight: 500; line-height: 1.85; color: rgba(0,39,61,0.75); }
 
   #plans { background: var(--navy); padding: 7rem 6rem; }
   .plans-header { margin-bottom: 4rem; }
@@ -280,13 +285,14 @@
   </div>
 </section>
 
-<div id="promise">
-  <div class="promise-text">"You never have to worry about home maintenance ever again."</div>
-  <div class="promise-items"><div class="promise-item"><span class="promise-icon">✅</span><span class="promise-label">Fully Licensed &amp; Insured</span></div>
-    <div class="promise-item"><span class="promise-icon">🏠</span><span class="promise-label">Free Home Wellness Report</span></div>
-    <div class="promise-item"><span class="promise-icon">🔧</span><span class="promise-label">Monthly Maintenance Visits</span></div>
-    <div class="promise-item"><span class="promise-icon">📅</span><span class="promise-label">Easy Subscription</span></div>
-  </div>
+<div id="promise" style="background:var(--navy-mid);padding:1.2rem 6rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;border-bottom:1px solid var(--border-gold);">
+  <div style="display:flex;align-items:center;gap:0.7rem;"><span style="color:var(--gold);font-size:0.9rem;">✓</span><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Fully Licensed &amp; Insured</span></div>
+  <div style="width:1px;height:20px;background:var(--border-gold);"></div>
+  <div style="display:flex;align-items:center;gap:0.7rem;"><span style="color:var(--gold);font-size:0.9rem;">✓</span><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Free Home Wellness Report</span></div>
+  <div style="width:1px;height:20px;background:var(--border-gold);"></div>
+  <div style="display:flex;align-items:center;gap:0.7rem;"><span style="color:var(--gold);font-size:0.9rem;">✓</span><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Monthly Maintenance Visits</span></div>
+  <div style="width:1px;height:20px;background:var(--border-gold);"></div>
+  <div style="display:flex;align-items:center;gap:0.7rem;"><span style="color:var(--gold);font-size:0.9rem;">✓</span><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Serving Summit, Cache, Salt Lake, Weber &amp; Davis Counties</span></div>
 </div>
 
 <section id="offer">
@@ -485,26 +491,31 @@
     <p class="section-body">Fill out the form and we'll reach out within 24 hours to schedule your free home wellness report. No obligation, no pressure.</p>
     <div class="contact-details">
       <div class="contact-detail"><span class="contact-detail-icon">📞</span><div><div class="contact-detail-label">Phone / Text</div><div class="contact-detail-value"><a href="tel:3853768354">385-376-8354</a></div></div></div>
-      <div class="contact-detail"><span class="contact-detail-icon">📧</span><div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#2a78454941494b445345445a476a4d474b434604494547"><span class="__cf_email__" data-cfemail="4c1e232f272f2d223523223c210c2b212d2520622f2321">[email&#160;protected]</span></a></div></div></div>
-      <div class="contact-detail"><span class="contact-detail-icon">📍</span><div><div class="contact-detail-label">Service Area</div><div class="contact-detail-value">Utah County and Beyond</div></div></div>
+      <div class="contact-detail"><span class="contact-detail-icon">📧</span><div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#6c0f0302180d0f182c1e030f070f0d021503021c1e031c091e1815420f0301"><span class="__cf_email__" data-cfemail="4a2925243e2b293e0a38252921292b243325243a38253a2f383e3364292527">[email&#160;protected]</span></a></div></div></div>
+      <div class="contact-detail"><span class="contact-detail-icon">📍</span><div><div class="contact-detail-label">Service Area</div><div class="contact-detail-value">Summit, Cache, Salt Lake, Weber &amp; Davis Counties</div></div></div>
     </div>
     <div class="contact-qr">
       <img src="rc-qr.png" alt="Scan to contact Rock Canyon Property Management" />
       <div class="contact-qr-text"><h4>Scan to Contact Us</h4><p>Point your camera at the QR code to get in touch instantly — or visit rockcanyonproperty.com</p></div>
     </div>
   </div>
-  <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms configuration -->
+    <input type="hidden" name="access_key" value="ddc462c4-4ee8-47b5-a61b-d5769e292bb3" />
+    <input type="hidden" name="subject" value="New Rock Canyon Property Management Inquiry" />
+    <input type="hidden" name="from_name" value="Rock Canyon Website" />
+    <input type="hidden" name="redirect" value="false" />
     <div class="form-row">
-      <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="James" required /></div>
-      <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Andersen" required /></div>
+      <div class="form-group"><label class="form-label">First Name</label><input type="text" name="first_name" class="form-input" placeholder="James" required /></div>
+      <div class="form-group"><label class="form-label">Last Name</label><input type="text" name="last_name" class="form-input" placeholder="Andersen" required /></div>
     </div>
-    <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="james@email.com" required /></div>
-    <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" placeholder="(801) 000-0000" /></div>
-    <div class="form-group"><label class="form-label">Property Address / City</label><input type="text" class="form-input" placeholder="Provo, Orem, Lehi..." /></div>
+    <div class="form-group"><label class="form-label">Email Address</label><input type="email" name="email" class="form-input" placeholder="james@email.com" required /></div>
+    <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" name="phone" class="form-input" placeholder="(801) 000-0000" /></div>
+    <div class="form-group"><label class="form-label">Property Address / City</label><input type="text" name="property_location" class="form-input" placeholder="Provo, Orem, Lehi..." /></div>
     <div class="form-group"><label class="form-label">Membership Interest</label>
-      <select class="form-select"><option value="">Select a plan...</option><option>Essential — $99/month</option><option>Steward — $199/month</option><option>Premier — $299/month</option><option>Not sure yet — just exploring</option></select>
+      <select name="plan_interest" class="form-select"><option value="">Select a plan...</option><option>Essential — $99/month</option><option>Steward — $199/month</option><option>Premier — $299/month</option><option>Not sure yet — just exploring</option></select>
     </div>
-    <div class="form-group"><label class="form-label">Tell Us About Your Home</label><textarea class="form-textarea" placeholder="Square footage, age of home, any specific concerns..."></textarea></div>
+    <div class="form-group"><label class="form-label">Tell Us About Your Home</label><textarea name="message" class="form-textarea" placeholder="Square footage, age of home, any specific concerns..."></textarea></div>
     <button type="submit" class="form-submit">Request Free Wellness Report →</button>
     <div class="form-success" id="formSuccess">Thank you! We'll be in touch within 24 hours.</div>
   </form>
@@ -519,17 +530,17 @@
     <div class="footer-links">
       <a href="#offer">Services</a><a href="#about">About</a><a href="#plans">Plans</a><a href="blog.html">Blog</a><a href="#contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2025 Rock Canyon Property Management · rockcanyonproperty.com · Fully Licensed &amp; Insured</div>
+    <div class="footer-copy">© 2025 Rock Canyon Property Management · Fully Licensed &amp; Insured · Serving Summit, Cache, Salt Lake, Weber &amp; Davis Counties</div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Contact form — submits to Formspree (replace YOUR_FORM_ID with real ID after signup)
+  // Contact form — Web3Forms submission
   const form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', async function(e) {
@@ -538,21 +549,24 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
       try {
-        const resp = await fetch(this.action, {
+        const resp = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: new FormData(this),
           headers: { 'Accept': 'application/json' }
         });
-        if (resp.ok) {
+        const data = await resp.json();
+        if (data.success) {
           document.getElementById('formSuccess').style.display = 'block';
           this.reset();
           btn.textContent = 'Request Free Wellness Report →';
           btn.disabled = false;
         } else {
-          btn.textContent = 'Error — please call us';
+          btn.textContent = 'Error — please call 385-376-8354';
+          btn.disabled = false;
         }
       } catch(err) {
-        btn.textContent = 'Error — please call us';
+        btn.textContent = 'Error — please call 385-376-8354';
+        btn.disabled = false;
       }
     });
   }
@@ -560,13 +574,4 @@
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
       const t = document.querySelector(this.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-    });
-  });
-
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('mainNav');
-    if (nav) nav.style.padding = window.scrollY > 60 ? '0.5rem 4rem' : '1.2rem 4rem';
-  });
-</script></body>
-</html>
+      if (t) { e.preventDefault(); t.scrol
