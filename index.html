@@ -184,6 +184,8 @@ border-bottom: 1px solid var(--border-gold); transition: padding 0.3s;
 .compare-cta-btn.outline:hover { border-color: var(--gold); color: var(--gold); }
 .compare-cta-btn.gold { background: var(--gold); color: var(--navy); }
 .compare-cta-btn.gold:hover { background: var(--gold-light); }
+.compare-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.compare-swipe-hint { display: none; text-align: center; font-size: 0.65rem; color: rgba(255,255,255,0.35); margin-top: 0.8rem; letter-spacing: 0.08em; }
 .compare-mobile-cards { display: none; }
 #testimonial { background: var(--navy-mid); padding: 7rem 10rem; text-align: center; }
 .testimonial-quote { font-family: 'Playfair Display', serif; font-size: clamp(1.35rem, 2.3vw, 2rem); font-weight: 400; font-style: italic; line-height: 1.55; color: rgba(255,255,255,0.86); margin-bottom: 2rem; position: relative; }
@@ -231,41 +233,6 @@ footer { background: var(--navy-deep); padding: 2.8rem 6rem; border-top: 1px sol
 .reveal { opacity: 1; transform: translateY(0); }
 .reveal.animate { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.animate.visible { opacity: 1; transform: translateY(0); }
-@media (max-width: 960px) {
-nav { padding: 1rem 1.5rem; }
-.nav-logo img { height: 70px; }
-.nav-links { display: none; }
-.hero-content { padding: 0 2rem; }
-.hero-badges { left: 2rem; right: 2rem; bottom: 2rem; gap: 1.5rem; }
-#promise { padding: 2rem; flex-direction: column; }
-#offer, #about, #contact { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
-#services, #process, #plans { padding: 5rem 2rem; }
-.stat-grid { grid-template-columns: repeat(2, 1fr); }
-.stat-number { font-size: 2.2rem; }
-.stat-card { padding: 1.8rem 1.2rem; }
-.process-inner { grid-template-columns: 1fr; gap: 3rem; }
-.compare-table { display: none; }
-.compare-mobile-cards { display: grid; grid-template-columns: 1fr; gap: 1.2rem; max-width: 480px; margin: 2rem auto 0; }
-.compare-mobile-card { background: var(--navy-deep); border: 1px solid var(--border-gold); padding: 1.8rem 1.5rem; }
-.compare-mobile-card.featured { background: var(--navy-mid); border-color: var(--gold); }
-.compare-mobile-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 0.3rem; }
-.compare-mobile-card .mc-price { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold-light); margin-bottom: 1rem; }
-.compare-mobile-card .mc-price span { font-family: 'Raleway', sans-serif; font-size: 0.75rem; color: rgba(255,255,255,0.4); font-weight: 300; }
-.compare-mobile-card ul { list-style: none; margin-bottom: 1.5rem; }
-.compare-mobile-card ul li { font-size: 0.78rem; color: rgba(255,255,255,0.7); padding: 0.4rem 0; display: flex; gap: 0.6rem; }
-.compare-mobile-card ul li::before { content: '✓'; color: var(--gold); flex-shrink: 0; }
-.compare-mobile-card button { width: 100%; padding: 0.85rem; font-family: 'Raleway', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; border: none; }
-.compare-mobile-card .mc-btn-gold { background: var(--gold); color: var(--navy); }
-#testimonial { padding: 5rem 2rem; }
-.testimonial-quote::before { display: none; }
-.form-row { grid-template-columns: 1fr; }
-footer { padding: 2.5rem 2rem; }
-.footer-inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-#audience { padding: 5rem 2rem; }
-.audience-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-.faq-grid { grid-template-columns: 1fr; }
-#faq { padding: 5rem 2rem; }
-}
 .faq-answer { padding: 0 1.3rem 1.2rem; font-size: 0.8rem; font-weight: 300; line-height: 1.8; color: rgba(0,39,61,0.72); }
 .faq-answer strong { color: var(--navy); font-weight: 600; }
 #audience { background: var(--navy-deep); padding: 7rem 6rem; }
@@ -292,8 +259,42 @@ footer { padding: 2.5rem 2rem; }
 .faq-item summary::after { content: '+'; font-family: 'Raleway', sans-serif; font-size: 1.3rem; font-weight: 300; color: var(--gold); line-height: 1; transition: transform 0.25s; flex-shrink: 0; }
 .faq-item[open] summary::after { transform: rotate(45deg); }
 .faq-item summary:hover { color: var(--gold); }
-.faq-answer { padding: 0 1.3rem 1.2rem; font-size: 0.8rem; font-weight: 300; line-height: 1.8; color: rgba(0,39,61,0.72); }
-.faq-answer strong { color: var(--navy); font-weight: 600; }
+@media (max-width: 960px) {
+nav { padding: 1rem 1.5rem; }
+.nav-logo img { height: 70px; }
+.nav-links { display: none; }
+.hero-content { padding: 0 2rem; }
+.hero-badges { left: 2rem; right: 2rem; bottom: 2rem; gap: 1.5rem; }
+#promise { padding: 2rem; flex-direction: column; }
+#offer, #about, #contact { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+#services, #process, #plans { padding: 5rem 2rem; }
+.stat-grid { grid-template-columns: repeat(2, 1fr); }
+.stat-number { font-size: 2.2rem; }
+.stat-card { padding: 1.8rem 1.2rem; }
+.process-inner { grid-template-columns: 1fr; gap: 3rem; }
+.compare-table { display: table; min-width: 560px; }
+.compare-mobile-cards { display: none; }
+.compare-swipe-hint { display: block; }
+.compare-mobile-card { background: var(--navy-deep); border: 1px solid var(--border-gold); padding: 1.8rem 1.5rem; }
+.compare-mobile-card.featured { background: var(--navy-mid); border-color: var(--gold); }
+.compare-mobile-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 0.3rem; }
+.compare-mobile-card .mc-price { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold-light); margin-bottom: 1rem; }
+.compare-mobile-card .mc-price span { font-family: 'Raleway', sans-serif; font-size: 0.75rem; color: rgba(255,255,255,0.4); font-weight: 300; }
+.compare-mobile-card ul { list-style: none; margin-bottom: 1.5rem; }
+.compare-mobile-card ul li { font-size: 0.78rem; color: rgba(255,255,255,0.7); padding: 0.4rem 0; display: flex; gap: 0.6rem; }
+.compare-mobile-card ul li::before { content: '✓'; color: var(--gold); flex-shrink: 0; }
+.compare-mobile-card button { width: 100%; padding: 0.85rem; font-family: 'Raleway', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; border: none; }
+.compare-mobile-card .mc-btn-gold { background: var(--gold); color: var(--navy); }
+#testimonial { padding: 5rem 2rem; }
+.testimonial-quote::before { display: none; }
+.form-row { grid-template-columns: 1fr; }
+footer { padding: 2.5rem 2rem; }
+.footer-inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+#audience { padding: 4rem 1.5rem; }
+.audience-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+.faq-grid { grid-template-columns: 1fr; }
+#faq { padding: 4rem 1.5rem; }
+}
 </style>
 </head>
 <body>
@@ -508,6 +509,7 @@ footer { padding: 2.5rem 2rem; }
 <h2 class="section-title">Simple Pricing.<br><em>Compare Side by Side.</em></h2>
 <p class="section-body">Both plans include your free home wellness report and access to our licensed-pro network. The difference is how often we show up, how deep we go, and how quickly we get to your add-on requests.</p>
 </div>
+<div class="compare-wrapper">
 <table class="compare-table reveal">
 <thead>
 <tr>
@@ -548,6 +550,8 @@ footer { padding: 2.5rem 2rem; }
 </tr>
 </tbody>
 </table>
+</div>
+<p class="compare-swipe-hint">← Swipe to compare →</p>
 <div class="compare-mobile-cards reveal">
 <div class="compare-mobile-card">
 <h3>Core</h3>
