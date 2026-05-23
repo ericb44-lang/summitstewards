@@ -107,21 +107,22 @@ border-bottom: 1px solid var(--border-gold); transition: padding 0.3s;
 .about-sig { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--gold-light); margin-top: 1.8rem; }
 .about-team-note { margin-top: 1.5rem; padding: 1.2rem 1.4rem; background: rgba(184,150,46,0.1); border: 1px solid var(--border-gold); font-size: 0.77rem; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.58); }
 .about-team-note strong { color: var(--gold-light); font-weight: 600; }
-#services { background: var(--tan-pale); padding: 7rem 6rem; }
+#services { background: var(--navy); padding: 7rem 6rem; }
 .services-header { margin-bottom: 4rem; max-width: 680px; margin-left: auto; margin-right: auto; text-align: center; }
 #services .section-eyebrow { color: var(--gold); }
-#services .section-title { color: var(--navy); }
+#services .section-title { color: var(--white); }
 #services .section-title em { color: var(--gold); }
-#services .section-body { color: rgba(0,39,61,0.7); }
-.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem 2rem; max-width: 1200px; margin: 0 auto; }
-.service-card { background: transparent; padding: 1.2rem 0.6rem 0; text-align: center; transition: transform 0.2s; }
-.service-card:hover { transform: translateY(-4px); }
-.service-icon-wrap { display: flex; align-items: center; justify-content: center; height: 64px; margin-bottom: 1rem; }
-.service-icon-wrap svg { width: 48px; height: 48px; stroke: var(--navy); stroke-width: 1.6; fill: none; transition: stroke 0.2s; }
-.service-card:hover .service-icon-wrap svg { stroke: var(--gold); }
-.service-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); margin-bottom: 0.25rem; line-height: 1.25; }
-.service-freq { font-family: 'Playfair Display', serif; font-size: 0.85rem; font-style: italic; color: var(--navy); margin-bottom: 0.85rem; opacity: 0.7; }
-.service-desc { font-size: 0.78rem; font-weight: 400; line-height: 1.7; color: rgba(0,39,61,0.72); padding: 0 0.3rem; }
+#services .section-body { color: rgba(255,255,255,0.6); }
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(201,151,42,0.18); max-width: 1200px; margin: 0 auto; }
+.stat-card { background: var(--navy-deep); padding: 2.4rem 2rem; text-align: center; transition: background 0.25s; display: flex; flex-direction: column; align-items: center; }
+.stat-card:hover { background: var(--navy-mid); }
+.stat-card:nth-child(even) { background: var(--navy-mid); }
+.stat-card:nth-child(even):hover { background: #004060; }
+.stat-icon-wrap { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin: 0 auto 1rem; }
+.stat-icon-wrap svg { width: 100%; height: 100%; stroke: var(--gold); }
+.stat-number { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.6rem; }
+.stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 0.6rem; }
+.stat-desc { font-size: 0.72rem; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.45); }
 #process { background: var(--tan-pale); padding: 7rem 6rem; }
 .process-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: start; }
 .process-left .section-title { color: var(--navy); font-weight: 800; }
@@ -214,8 +215,6 @@ border-bottom: 1px solid var(--border-gold); transition: padding 0.3s;
 .form-submit:hover { background: var(--navy-mid); transform: translateY(-2px); }
 .form-success { display: none; padding: 0.95rem 1.3rem; background: rgba(184,150,46,0.1); border: 1px solid var(--gold); color: var(--gold); font-size: 0.76rem; }
 .gold-rule { height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
-.mountain-divider { width: 100%; overflow: hidden; line-height: 0; }
-.mountain-divider svg { display: block; }
 footer { background: var(--navy-deep); padding: 2.8rem 6rem; border-top: 1px solid var(--border-gold); }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
 .footer-logo { display: flex; align-items: center; gap: 0.8rem; }
@@ -239,9 +238,9 @@ nav { padding: 1rem 1.5rem; }
 #promise { padding: 2rem; flex-direction: column; }
 #offer, #about, #contact { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
 #services, #process, #plans { padding: 5rem 2rem; }
-.services-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
-.service-name { font-size: 1rem; }
-.service-desc { font-size: 0.74rem; }
+.stat-grid { grid-template-columns: repeat(2, 1fr); }
+.stat-number { font-size: 2.2rem; }
+.stat-card { padding: 1.8rem 1.2rem; }
 .process-inner { grid-template-columns: 1fr; gap: 3rem; }
 .compare-table { display: none; }
 .compare-mobile-cards { display: grid; grid-template-columns: 1fr; gap: 1.2rem; max-width: 480px; margin: 2rem auto 0; }
@@ -254,7 +253,6 @@ nav { padding: 1rem 1.5rem; }
 .compare-mobile-card ul li { font-size: 0.78rem; color: rgba(255,255,255,0.7); padding: 0.4rem 0; display: flex; gap: 0.6rem; }
 .compare-mobile-card ul li::before { content: '✓'; color: var(--gold); flex-shrink: 0; }
 .compare-mobile-card button { width: 100%; padding: 0.85rem; font-family: 'Raleway', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; border: none; }
-.compare-mobile-card .mc-btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
 .compare-mobile-card .mc-btn-gold { background: var(--gold); color: var(--navy); }
 #testimonial { padding: 5rem 2rem; }
 .testimonial-quote::before { display: none; }
@@ -348,7 +346,7 @@ footer { padding: 2.5rem 2rem; }
 <div style="width:1px;height:20px;background:var(--border-gold);"></div>
 <div style="display:flex;align-items:center;gap:0.7rem;"><span style="color:var(--gold);font-size:0.9rem;">✓</span><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Recurring Maintenance Visits</span></div>
 <div style="width:1px;height:20px;background:var(--border-gold);"></div>
-<div style="display:flex;align-items:center;gap:0.7rem;"><span style="color:var(--gold);font-size:0.9rem;">✓</span><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Serving Utah, Salt Lake &amp; Summit Counties</span></div>
+<div style="display:flex;align-items:center;gap:0.7rem;"><span style="font-size:0.8rem;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,1);">Serving Utah, Salt Lake &amp; Summit Counties</span></div>
 </div>
 <section id="offer">
 <div class="offer-content reveal">
@@ -369,7 +367,7 @@ footer { padding: 2.5rem 2rem; }
 <div>
 <div class="offer-card-title">Recurring Maintenance Visits</div>
 <p class="offer-card-desc">Taking care of little issues before they turn into big problems — quarterly or monthly.</p>
-<ul class="offer-card-list"><li>HVAC filter replacement</li><li>Water softener salt refills</li><li>Drain cleanouts &amp; appliance care</li><li>Dryer vent cleanout</li><li>Exterior property walk</li></ul>
+<ul class="offer-card-list"><li>HVAC filter replacement</li><li>Water softener salt refills</li><li>Drain cleanouts &amp; appliance care</li><li>Dryer vent cleanout</li><li>Exterior property walk</li><li>And more...</li></ul>
 </div>
 </div>
 <div class="offer-card">
@@ -388,7 +386,7 @@ footer { padding: 2.5rem 2rem; }
 <span class="offer-free-badge-top">Free</span>
 <span class="offer-free-badge-bot">First Home Visit</span>
 </div>
-<img src="brayson.png" alt="Rock Canyon Property Management technician" />
+<img src="pexels-house-1867187.jpg" alt="Utah home managed by Rock Canyon Property Management" />
 </div>
 </div>
 </section>
@@ -396,14 +394,15 @@ footer { padding: 2.5rem 2rem; }
 <section id="about">
 <div class="about-img-wrap reveal">
 <div class="about-img-frame">
-<img src="brayson.png" alt="Brayson — Owner, Rock Canyon Property Management" />
+<img src="brayson-fr.jpg" alt="Brayson — Owner, Rock Canyon Property Management" />
 <div class="about-badge"><span class="about-badge-num">5★</span><span class="about-badge-txt">Rated Service</span></div>
 </div>
 </div>
 <div class="reveal">
 <p class="section-eyebrow">Meet the Owner</p>
 <h2 class="section-title">Built on <em>Trust &amp; Craftsmanship</em></h2>
-<p class="section-body">I'm Brayson, founder of Rock Canyon Property Management. I started this company because I saw too many homeowners overwhelmed by the endless demands of home upkeep — families who just want to enjoy their home, not manage it.</p>
+<p class="section-body">I'm Brayson, owner of Rock Canyon Property Management. With my background as a first responder I understand the real stresses and emergencies of life. <strong>Your home shouldn't be one of them.</strong></p>
+<p class="section-body" style="margin-top:1rem;">I started this company because I saw too many homeowners overwhelmed by the endless demands of home upkeep and families who just want to enjoy their home, not have to manage it.</p>
 <blockquote class="about-quote">"Your home is meant to be enjoyed. Let us handle the upkeep so you can focus on living in it."</blockquote>
 <p class="section-body">Rock Canyon is built on one simple promise: when you're a member, home maintenance is no longer your problem. It's ours.</p>
 <div class="about-team-note"><div style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:var(--navy);padding:0.3rem 0.8rem;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.8rem;">✅ Fully Licensed &amp; Insured</div><br><strong>We handle every recurring service ourselves</strong> and coordinate licensed professionals — plumbers, electricians, HVAC techs, window cleaners, and more — when specialty work is needed. One call, one relationship, complete peace of mind.</div>
@@ -441,109 +440,63 @@ footer { padding: 2.5rem 2rem; }
 </div>
 </section>
 
-<div class="mountain-divider">
-<svg viewBox="0 0 1440 44" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:44px;">
-<polygon points="0,44 360,6 720,32 1080,2 1440,22 1440,44" fill="#f5f0e8"/>
-<polyline points="0,44 360,6 720,32 1080,2 1440,22" fill="none" stroke="rgba(184,150,46,0.3)" stroke-width="1"/>
-</svg>
-</div>
+<div class="gold-rule"></div>
 <section id="services">
 <div class="services-header reveal">
-<p class="section-eyebrow">Full-Service Care</p>
-<h2 class="section-title">Every System.<br><em>Every Season.</em></h2>
-<p class="section-body">We handle the recurring maintenance your home needs ourselves — and connect you with vetted, licensed professionals for everything beyond our scope. One subscription. One point of contact. Every season covered.</p>
-</div>
-<div class="services-grid reveal">
-
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="20" width="36" height="24" rx="2" stroke-linejoin="round"/><line x1="20" y1="26" x2="44" y2="26"/><line x1="20" y1="32" x2="44" y2="32"/><line x1="20" y1="38" x2="44" y2="38"/><circle cx="50" cy="50" r="3"/></svg></div>
-<h3 class="service-name">HVAC Filter Replacement</h3>
-<p class="service-freq">Quarterly</p>
-<p class="service-desc">Fresh filter every visit — MERV 8–11 included, higher ratings available. Cleaner air, lower energy bills, longer system life.</p>
+<p class="section-eyebrow">The Numbers Don't Lie</p>
+<h2 class="section-title">Why Maintenance<br><em>Can't Wait.</em></h2>
+<p class="section-body">The numbers behind why preventative maintenance matters — and what we do about each one on every Rock Canyon visit.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 12 L42 28 Q48 38 32 38 Q16 38 22 28 Z" stroke-linejoin="round"/><path d="M22 42 L42 42 L40 54 L24 54 Z" stroke-linejoin="round"/></svg></div>
-<h3 class="service-name">Water Softener Salt</h3>
-<p class="service-freq">Quarterly</p>
-<p class="service-desc">We check and refill your softener so your water stays soft and your plumbing and appliances stay protected.</p>
+<div class="stat-grid reveal">
+
+<div class="stat-card">
+<div class="stat-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+<div class="stat-number">$1 → $10</div>
+<div class="stat-label">Preventative vs. Emergency</div>
+<p class="stat-desc">Every $1 spent on regular maintenance prevents $5–$10 in emergency repairs. Skipping maintenance doesn't save money — it delays and multiplies the cost.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="14" width="36" height="36" rx="2" stroke-linejoin="round"/><circle cx="32" cy="32" r="11"/><circle cx="32" cy="32" r="5"/><circle cx="22" cy="20" r="1.5" fill="currentColor" stroke="none"/></svg></div>
-<h3 class="service-name">Dryer Vent Cleanout</h3>
-<p class="service-freq">Every Visit</p>
-<p class="service-desc">The #1 preventable house fire cause. We clean interior and exterior dryer vents on every visit — your home and family stay safer.</p>
+<div class="stat-card">
+<div class="stat-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+<div class="stat-number">1 in 3</div>
+<div class="stat-label">Major System Failures</div>
+<p class="stat-desc">1 in 3 homeowners experiences a major home system failure every year. Regular maintenance visits catch the warning signs before they become emergencies.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="12" width="32" height="40" rx="3" stroke-linejoin="round"/><line x1="16" y1="22" x2="48" y2="22"/><circle cx="22" cy="17" r="1.5" fill="currentColor" stroke="none"/><circle cx="28" cy="17" r="1.5" fill="currentColor" stroke="none"/><circle cx="32" cy="34" r="6"/></svg></div>
-<h3 class="service-name">Washer &amp; Dishwasher Care</h3>
-<p class="service-freq">Every Visit</p>
-<p class="service-desc">Cleaning cycles and filter clean-outs on both. Stops the slow buildup that ruins seals and ends appliance life early.</p>
+<div class="stat-card">
+<div class="stat-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+<div class="stat-number">Value</div>
+<div class="stat-label">Maintained Homes Sell Higher</div>
+<p class="stat-desc">Well-maintained homes consistently appraise and sell for more. A documented maintenance history is one of the strongest signals of a home's true condition to buyers.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M20 14 L44 14 Q44 22 38 22 L26 22 Q20 22 20 14 Z" stroke-linejoin="round"/><line x1="24" y1="22" x2="24" y2="40"/><line x1="40" y1="22" x2="40" y2="40"/><path d="M22 40 Q22 50 32 50 Q42 50 42 40 Z" stroke-linejoin="round"/></svg></div>
-<h3 class="service-name">Drain Clearing</h3>
-<p class="service-freq">Every Visit</p>
-<p class="service-desc">Shower and tub drains cleared of hair and buildup before they become a plumber bill. Quick, clean, and routine.</p>
+<div class="stat-card">
+<div class="stat-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 6-6 8-6 14a6 6 0 0 0 12 0c0-6-6-8-6-14z"/><path d="M12 12c0 3-2 4-2 7a2 2 0 0 0 4 0c0-3-2-4-2-7z"/></svg></div>
+<div class="stat-number">#1</div>
+<div class="stat-label">Dryer Vent Fires</div>
+<p class="stat-desc">Leading cause of preventable home fires in the U.S. We clean yours on every single visit — not annually, every time.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="8"/><line x1="32" y1="12" x2="32" y2="18"/><line x1="32" y1="46" x2="32" y2="52"/><line x1="12" y1="32" x2="18" y2="32"/><line x1="46" y1="32" x2="52" y2="32"/></svg></div>
-<h3 class="service-name">Disposal Cleaning</h3>
-<p class="service-freq">Every Visit</p>
-<p class="service-desc">Your kitchen disposal cleaned and refreshed — deodorize on Core, deep clean on Premium. No more lingering kitchen smells.</p>
+<div class="stat-card">
+<div class="stat-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
+<div class="stat-number">25%</div>
+<div class="stat-label">HVAC Efficiency Lost</div>
+<p class="stat-desc">A clogged filter quietly raises your power bill and shortens your furnace's life. We swap it on every visit — MERV 8–11 included.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M14 50 L14 22 L32 14 L50 22 L50 50 Z" stroke-linejoin="round"/><path d="M22 50 L22 36 L42 36 L42 50"/><line x1="32" y1="36" x2="32" y2="50"/></svg></div>
-<h3 class="service-name">Interior &amp; Exterior Inspection</h3>
-<p class="service-freq">Quarterly · Premium</p>
-<p class="service-desc">Full interior and exterior walkthrough every quarter. Catch small issues — caulking, weather damage, wear — before they become big ones.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="18" width="28" height="34" rx="2" stroke-linejoin="round"/><line x1="18" y1="26" x2="46" y2="26"/><line x1="24" y1="14" x2="24" y2="20"/><line x1="40" y1="14" x2="40" y2="20"/><line x1="25" y1="34" x2="39" y2="34"/><line x1="25" y1="42" x2="39" y2="42"/></svg></div>
-<h3 class="service-name">Garbage Can Sanitize</h3>
-<p class="service-freq">Quarterly · Premium</p>
-<p class="service-desc">Exterior garbage cans cleaned and sanitized — no more odors, bacteria, or summer buildup in your bins.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="20"/><path d="M32 18 L32 32 L42 38"/><line x1="32" y1="14" x2="32" y2="18"/><line x1="32" y1="46" x2="32" y2="50"/></svg></div>
-<h3 class="service-name">Smoke &amp; CO Testing</h3>
-<p class="service-freq">Annual</p>
-<p class="service-desc">Every smoke and carbon monoxide detector in your home tested annually. Batteries swapped, failures flagged, replacements quoted at cost.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M10 44 L10 30 L26 30 L26 22 L44 22 L44 44 Z" stroke-linejoin="round"/><circle cx="20" cy="48" r="4"/><circle cx="40" cy="48" r="4"/><line x1="44" y1="22" x2="54" y2="34"/><line x1="44" y1="34" x2="54" y2="34"/></svg></div>
-<h3 class="service-name">DI Donation Run</h3>
-<p class="service-freq">Quarterly · Premium</p>
-<p class="service-desc">Up to 10 bags or boxes hauled to Deseret Industries each quarter. Stage your items — we handle the rest.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="14" width="24" height="32" rx="2" stroke-linejoin="round"/><line x1="20" y1="22" x2="44" y2="22"/><polyline points="26,30 30,34 38,26"/><line x1="14" y1="52" x2="50" y2="52"/></svg></div>
-<h3 class="service-name">Dump Run</h3>
-<p class="service-freq">Quarterly · Premium</p>
-<p class="service-desc">Or swap your DI run for a dump run — up to 10 bags or boxes hauled away within 15 miles of your property. No truck, no trip, no problem.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon-wrap"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="24" r="8"/><circle cx="42" cy="24" r="8"/><path d="M10 48 Q10 38 22 38 Q34 38 34 48"/><path d="M30 48 Q30 38 42 38 Q54 38 54 48"/></svg></div>
-<h3 class="service-name">Licensed Pro Network</h3>
-<p class="service-freq">Both Plans</p>
-<p class="service-desc">Plumbers, electricians, HVAC techs, painters, window cleaners, pest control, landscapers, pool service, carpet cleaners, appliance repair, and more — we coordinate vetted professionals so you don't have to.</p>
+<div class="stat-card">
+<div class="stat-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+<div class="stat-number">Top 5</div>
+<div class="stat-label">Hardest Water in the U.S.</div>
+<p class="stat-desc">Utah's mineral-heavy water destroys appliances when your softener runs dry. We refill it quarterly so it never does.</p>
 </div>
 
 </div>
 
-<div style="max-width:780px;margin:4rem auto 0;padding:1.6rem 1.8rem;background:rgba(184,150,46,0.1);border:1px solid var(--border-gold);text-align:center;">
-<p style="font-size:0.82rem;font-weight:400;line-height:1.85;color:rgba(0,39,61,0.78);">
-<strong style="color:var(--gold);font-weight:700;">Add-on services available</strong> — caulking, drywall touch-up, TV mounting, water heater flushes, refrigerator coil cleaning, holiday lights, sprinkler winterization, gutter cleaning, and more. Members get member pricing; Premium members get priority scheduling.
+<div style="max-width:780px;margin:3rem auto 0;padding:1.6rem 1.8rem;background:rgba(201,151,42,0.08);border:1px solid rgba(201,151,42,0.25);text-align:center;">
+<p style="font-size:0.82rem;font-weight:400;line-height:1.85;color:rgba(255,255,255,0.65);">
+<strong style="color:var(--gold);font-weight:700;">Add-on services available</strong> — gutter cleaning, power washing, caulking, drywall touch-up, TV mounting, water heater flushes, holiday lights, sprinkler winterization, and more. Members get member pricing; Premium members get priority scheduling.
 </p>
 </div>
 </section>
@@ -555,7 +508,7 @@ footer { padding: 2.5rem 2rem; }
 <p class="section-body">From your first call to ongoing membership, we make it effortless to protect your most valuable asset.</p>
 </div>
 <div class="process-steps reveal">
-<div class="process-step"><span class="step-num">01</span><div><div class="step-title">Call or Contact Us</div><p class="step-body">Reach out by phone, form, or scan our QR code. We'll schedule your complimentary first home visit.</p></div></div>
+<div class="process-step"><span class="step-num">01</span><div><div class="step-title">Call or Contact Us</div><p class="step-body">Reach out by phone or form. We'll schedule your complimentary first home visit.</p></div></div>
 <div class="process-step"><span class="step-num">02</span><div><div class="step-title">Free Home Wellness Report</div><p class="step-body">We walk through your entire home and deliver a full report — what's great and what needs attention. No obligation.</p></div></div>
 <div class="process-step"><span class="step-num">03</span><div><div class="step-title">Choose Your Plan</div><p class="step-body">Pick the membership that fits your home. Both plans include your wellness report and access to our licensed-pro network.</p></div></div>
 <div class="process-step"><span class="step-num">04</span><div><div class="step-title">We Handle Everything</div><p class="step-body">Our trained team shows up on schedule. You get updates and photo reports, we handle the work.</p></div></div>
@@ -687,7 +640,7 @@ footer { padding: 2.5rem 2rem; }
 
 <tr class="compare-cta-row">
 <td></td>
-<td class="compare-col"><button class="compare-cta-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button></td>
+<td class="compare-col"></td>
 <td class="compare-col featured"><button class="compare-cta-btn gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button></td>
 </tr>
 
@@ -710,7 +663,6 @@ footer { padding: 2.5rem 2rem; }
 <li>Annual smoke &amp; CO testing</li>
 <li>Licensed pro network access</li>
 </ul>
-<button class="mc-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
 </div>
 <div class="compare-mobile-card featured">
 <h3>Premium</h3>
@@ -838,13 +790,10 @@ footer { padding: 2.5rem 2rem; }
 <p class="section-body">Fill out the form and we'll reach out within 24 hours to schedule your free home wellness report. No obligation, no pressure.</p>
 <div class="contact-details">
 <div class="contact-detail"><span class="contact-detail-icon">📞</span><div><div class="contact-detail-label">Phone / Text</div><div class="contact-detail-value"><a href="tel:3853768354">385-376-8354</a></div></div></div>
-<div class="contact-detail"><span class="contact-detail-icon">📧</span><div><div class="contact-detail-label">Email</div><div class="contact-detail-value">contact@rockcanyonproperty.com</div></div></div>
+<div class="contact-detail"><span class="contact-detail-icon">📧</span><div><div class="contact-detail-label">Email</div><div class="contact-detail-value">hello@rockcanyonproperty.com</div></div></div>
 <div class="contact-detail"><span class="contact-detail-icon">📍</span><div><div class="contact-detail-label">Service Area</div><div class="contact-detail-value">Utah County, Salt Lake County, Summit County &amp; surrounding Utah communities</div></div></div>
 </div>
-<div class="contact-qr">
-<img src="rc-qr.png" alt="Scan to contact Rock Canyon Property Management" />
-<div class="contact-qr-text"><h4>Scan to Contact Us</h4><p>Point your camera at the QR code to get in touch instantly — or visit rockcanyonproperty.com</p></div>
-</div>
+
 </div>
 <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
 <!-- Web3Forms configuration -->
